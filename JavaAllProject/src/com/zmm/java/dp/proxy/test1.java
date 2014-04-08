@@ -1,31 +1,19 @@
 package com.zmm.java.dp.proxy;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+
 public class test1 {
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		
-		String fileName = System.getProperty("user.dir");
-		System.out.println(fileName);
-		
+	public static void main(String[] args) throws Exception{
+		Tank t = new Tank();
+		InvocationHandler h = new LogHandler(t);
+		Moveable m = (Moveable) Proxy.newProxyInstance(Moveable.class, h);
+		m.move();
 	}
-	String rt = "\r\n";
-	String src = 
-	"package com.zmm.java.dp.proxy;" + rt +
-	"  public class PlussLogMoveable implements Moveable {" + rt +
-		"  Moveable moveable;" + rt +
-		"  public PlussLogMoveable(Moveable moveable) {" + rt +
-			"  this.moveable = moveable;" + rt +
-		"  }" + rt +
-		"@Override" + rt +
-		"  public void move() {" + rt +
-			"  System.out.println(\"begin loging ...\");" + rt +
-			"  moveable.move();" + rt +
-			"  System.out.println(\"Loging finish.\");" + rt +
-		" }" + rt +
-	"}" ;
-
-			
+	
 }
