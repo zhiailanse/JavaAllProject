@@ -4,7 +4,7 @@ public class Main {
 
 	/**
 	 * @param args
-	 * }��ά�ȣ�������ϣ�bridge
+	 * 多个维度，排列组合,减少继承，减少耦合
 	 */
 	public static void main(String[] args) {
 		Gift f = new CheepGift(new Pen());

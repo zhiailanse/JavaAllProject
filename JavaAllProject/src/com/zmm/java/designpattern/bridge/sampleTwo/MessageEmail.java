@@ -1,0 +1,10 @@
+package com.zmm.java.designpattern.bridge.sampleTwo;
+
+public class MessageEmail implements MessageImplementor{
+
+	@Override
+	public void send(String message, String toUser) {
+		System.out.println("使用邮件消息的方法，发送消息'"
+				+ message + "'给" + toUser);
+	}
+}

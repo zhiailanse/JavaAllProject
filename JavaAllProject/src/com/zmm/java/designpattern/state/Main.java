@@ -4,7 +4,7 @@ public class Main {
 
 	/**
 	 * @param args
-	 * ��Ҫ����������ǿ��״̬����ͬ��״̬
+	 * 与策略模式结构类似
 	 */
 	public static void main(String[] args) {
 		MM mm = new MM();
