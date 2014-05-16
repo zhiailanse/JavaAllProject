@@ -1,7 +1,6 @@
 package com.zmm.java.thread;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -10,10 +9,21 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueTest {
 
 	/**
+	 * BolckingQueue:
+	 * put,take:添加和移除并返回一个元素,失败则阻塞
+	 * 
+	 * add,remove,element:失败则抛异常
+	 * offer,poll,peek:失败不会抛异常，返回false或null,可是设置超时，超时返回null，不可以向队列中添加null
+	 * 
+	 * 
+	 * LinkedBlockingQueue:容量无上限
+	 * ArrayBlockingQueue:构造时给定容量
+	 * PrioritityBlockingQueue:元素按照优先级顺序被移除 
+	 * DelayQueue:元素只有在延迟用完后才能从队列中移除
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String path = System.getProperty("user.dir") + File.separator;
+		String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
 		String keyword = "a";
 		
 		final int FILE_QUEUE_SIZE = 10;
@@ -91,7 +101,8 @@ class SearchTask implements Runnable{
 	}
 	
 	public void search(File file) throws IOException{
-		Scanner in = new Scanner(new FileInputStream(file),"utf-16");
+//		Scanner in = new Scanner(new FileInputStream(file));
+		Scanner in = new Scanner(file);
 		int lineNumber = 0;
 		while (in.hasNextLine()){
 			lineNumber ++;
